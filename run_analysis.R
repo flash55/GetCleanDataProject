@@ -90,5 +90,10 @@ Data2<-Data2[order(Data2$subject,Data2$activity),]
 # write the 'tidy' dataset
 write.table(Data2, file = "tidydata.txt",row.name=FALSE)
 
-#library(knitr)
+# write generate codebook using memisc package
+library(memisc)
+#codebook(Data2)
+Data3 <- data.set(Data2)
+codebook(Data3)
+Write(codebook(Data3), file="codebook.md")
 #knit2html("codebook.Rmd")
